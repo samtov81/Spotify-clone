@@ -1,6 +1,6 @@
 import { usePlayerStore } from "@/store/playerStore"
 import { useEffect, useRef, useState } from "react"
-// import { Slider } from "./Slider"
+import { Slider } from "./Slider"
 
 export const Pause = ({ className }) => (
   <svg className={className} role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"><path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path></svg>
@@ -72,7 +72,7 @@ const SongControl = ({ audio }) => {
     <div className="flex gap-x-3 text-xs pt-2">
       <span className="opacity-50 w-12 text-right">{formatTime(currentTime)}</span>
 
-      {/* <Slider
+      <Slider
         value={[currentTime]}
         max={audio?.current?.duration ?? 0}
         min={0}
@@ -81,7 +81,7 @@ const SongControl = ({ audio }) => {
           const [newCurrentTime] = value
           audio.current.currentTime = newCurrentTime
         }}
-      /> */}
+      />
 
       <span className="opacity-50 w-12">
         {duration ? formatTime(duration) : '0:00'}
@@ -114,7 +114,7 @@ const VolumeControl = () => {
         {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
       </button>
     
-      {/* <Slider
+      <Slider
         defaultValue={[100]}
         max={100}
         min={0}
@@ -125,7 +125,7 @@ const VolumeControl = () => {
           const volumeValue = newVolume / 100
           setVolume(volumeValue)
         }}
-      /> */}
+      />
     </div>
   )
 }
